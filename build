@@ -1,0 +1,27 @@
+#!/bin/bash
+
+clear
+echo "[1/5] Building..."
+
+docker stop c9open
+
+clear
+echo "[2/5] Building..."
+
+docker rm c9open
+
+clear
+echo "[3/5] Building..."
+
+docker rmi c9open
+
+clear
+echo "[4/5] Building..."
+
+docker build -t c9open .
+
+clear
+echo "[5/5] Building..."
+
+./start
+

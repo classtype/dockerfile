@@ -1,0 +1,39 @@
+#!/bin/bash
+
+#┌─────┐
+#│ SSH │
+#└─────┘
+
+mkdir /root/.ssh
+echo "IdentityFile /root/.ssh/id_rsa" >> /etc/ssh/ssh_config
+
+echo -e "Host github.com\n\tStrictHostKeyChecking no\n\tUserKnownHostsFile=/dev/null\n\tLogLevel error" >> /root/.ssh/config
+chmod 600 /root/.ssh/config
+
+cp /root/.sshsource/id_rsa /root/.ssh/id_rsa
+chmod 600 /root/.ssh/id_rsa
+
+cp /root/.sshsource/id_rsa.pub /root/.ssh/id_rsa.pub
+chmod 644 /root/.ssh/id_rsa.pub
+
+#┌─────┐
+#│ Git │
+#└─────┘
+
+git config --global user.email "email@email.email"
+git config --global user.name "Sergei"
+
+#┌───────────────┐
+#│ User.Settings │
+#└───────────────┘
+
+echo $SETTINGS > /root/.c9/user.settings
+
+#┌───────────────┐
+#│ Запуск Cloud9 │
+#└───────────────┘
+
+set -e
+
+/usr/bin/node /root/.c9/server.js -l 0.0.0.0 -p 8000 -w /$WORKSPACE -a $USERNAME:$PASSWORD
+

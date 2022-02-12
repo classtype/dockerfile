@@ -1,0 +1,18 @@
+#!/bin/bash
+
+clear
+echo "[1/2] Cleaning..."
+
+docker stop $(docker ps -aq)
+
+clear
+echo "[2/2] Cleaning..."
+
+docker rm $(docker ps -aq)
+
+clear
+echo "Starting..."
+
+./run 8000 3000 c9open
+./run 8001 3001 dockerfile
+
