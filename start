@@ -13,6 +13,6 @@ docker rm $(docker ps -aq)
 clear
 echo "Starting..."
 
-./run 8000 3000 c9open
-./run 8001 3001 dockerfile
+./run 8000 3000 c9open c9open
+./run 8001 3001 classtype dockerfile
 

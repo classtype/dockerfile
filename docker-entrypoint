@@ -10,10 +10,10 @@ echo "IdentityFile /root/.ssh/id_rsa" >> /etc/ssh/ssh_config
 echo -e "Host github.com\n\tStrictHostKeyChecking no\n\tUserKnownHostsFile=/dev/null\n\tLogLevel error" >> /root/.ssh/config
 chmod 600 /root/.ssh/config
 
-cp /root/.sshsource/id_rsa /root/.ssh/id_rsa
+cp /root/.sshsource/$SSH_KEY /root/.ssh/id_rsa
 chmod 600 /root/.ssh/id_rsa
 
-cp /root/.sshsource/id_rsa.pub /root/.ssh/id_rsa.pub
+cp /root/.sshsource/$SSH_KEY.pub /root/.ssh/id_rsa.pub
 chmod 644 /root/.ssh/id_rsa.pub
 
 #┌─────┐
