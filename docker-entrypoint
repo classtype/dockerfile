@@ -36,4 +36,3 @@ echo $SETTINGS > /root/.c9/user.settings
 set -e
 
 /usr/bin/node /root/.c9/server.js -l 0.0.0.0 -p 8000 -w /$WORKSPACE -a $USERNAME:$PASSWORD
-

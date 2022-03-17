@@ -3,4 +3,3 @@
 docker run -it -d --restart unless-stopped -p $1:8000 -p $2:3000 -e "SETTINGS=$(cat ./user.settings)" -e "SSH_KEY=$3" -v "$HOME/.ssh":/root/.sshsource -v "$HOME/cloud9/$4":/$4 -e "WORKSPACE=$4" -h $4 --name $4 c9open:latest
 
 echo "localhost:$1"
-

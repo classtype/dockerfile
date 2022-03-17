@@ -89,4 +89,3 @@ COPY bash_profile /root/.bash_profile
 COPY docker-entrypoint /usr/local/bin/
 RUN chmod 700 /usr/local/bin/docker-entrypoint
 ENTRYPOINT ["/bin/bash", "docker-entrypoint"]
-

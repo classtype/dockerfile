@@ -30,6 +30,6 @@ if [ -f /root/.git-prompt.sh ]; then
   . /root/.git-prompt.sh
 fi
 
-alias l='ls -alF'
 alias c='clear'
-
+alias l='c && ls -alF'
+alias s='c && git status'

@@ -3,16 +3,18 @@
 clear
 echo "[1/2] Cleaning..."
 
-docker stop $(docker ps -aq)
+docker stop $(docker ps -aq -f ancestor=c9open)
 
 clear
 echo "[2/2] Cleaning..."
 
-docker rm $(docker ps -aq)
+docker rm $(docker ps -aq -f ancestor=c9open)
 
 clear
 echo "Starting..."
 
-./run 8000 3000 c9open c9open
+./run 8000 3000 classtype main
 ./run 8001 3001 classtype dockerfile
-
+./run 8002 3002 c9open c9open
+./run 8003 3003 classtype app.socket
+./run 8004 3004 classtype app.socket.js
