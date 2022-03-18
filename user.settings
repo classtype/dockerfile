@@ -229,7 +229,7 @@
                 "command": "togglecomment",
                 "keys": {
                     "win": [
-                        "F3"
+                        "PageDown"
                     ]
                 }
             },
@@ -406,7 +406,7 @@
         "@running_app": false
     },
     "projecttree": {
-        "@hiddenFilePattern": "*.pyc, __pycache__, .*, node_modules",
+        "@hiddenFilePattern": "*.pyc, __pycache__, .*, node_modules, package-lock.json",
         "@scope": false,
         "@showhidden": false
     },

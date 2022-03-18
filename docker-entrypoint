@@ -10,10 +10,10 @@ echo "IdentityFile /root/.ssh/id_rsa" >> /etc/ssh/ssh_config
 echo -e "Host github.com\n\tStrictHostKeyChecking no\n\tUserKnownHostsFile=/dev/null\n\tLogLevel error" >> /root/.ssh/config
 chmod 600 /root/.ssh/config
 
-cp /root/.sshsource/$SSH_KEY /root/.ssh/id_rsa
+cp /root/.sshsource/$GIT_USER /root/.ssh/id_rsa
 chmod 600 /root/.ssh/id_rsa
 
-cp /root/.sshsource/$SSH_KEY.pub /root/.ssh/id_rsa.pub
+cp /root/.sshsource/$GIT_USER.pub /root/.ssh/id_rsa.pub
 chmod 644 /root/.ssh/id_rsa.pub
 
 #┌─────┐
@@ -23,16 +23,21 @@ chmod 644 /root/.ssh/id_rsa.pub
 git config --global user.email "email@email.email"
 git config --global user.name "Sergei"
 
-#┌───────────────┐
-#│ User.Settings │
-#└───────────────┘
+# Если репозитория нет, то пробуем привязать к Github
+if [ ! -e "/$WORKSPACE/.git" ]; then
+    git clone git@github.com:$GIT_USER/$WORKSPACE.git /$WORKSPACE
+fi
 
-echo $SETTINGS > /root/.c9/user.settings
+#┌─────────────────────────────────────────────┐
+#│ Для Cloud9 подходит только версия "v8.14.0" │
+#└─────────────────────────────────────────────┘
+
+if [[ $(node -v 2> /dev/null) != "v8.14.0" ]]; then
+    apk add nodejs=8.14.0-r0 npm -X http://dl-cdn.alpinelinux.org/alpine/v3.8/main/
+fi
 
 #┌───────────────┐
 #│ Запуск Cloud9 │
 #└───────────────┘
-
-set -e
 
 /usr/bin/node /root/.c9/server.js -l 0.0.0.0 -p 8000 -w /$WORKSPACE -a $USERNAME:$PASSWORD

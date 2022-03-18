@@ -16,5 +16,7 @@ echo "Starting..."
 ./run 8000 3000 classtype main
 ./run 8001 3001 classtype dockerfile
 ./run 8002 3002 c9open c9open
-./run 8003 3003 classtype app.socket
-./run 8004 3004 classtype app.socket.js
+./run 8003 3003 classtype app.init
+./run 8004 3004 classtype app.errorlog
+#./run 8005 3005 classtype app.socket
+#./run 8006 3006 classtype app.socket.js
