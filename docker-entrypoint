@@ -31,4 +31,4 @@ fi
 #┌───────────────┐
 #│ Запуск cloud9 │
 #└───────────────┘
-/root/.c9/start -l 0.0.0.0 -p 8000 -w /$WORKSPACE -a $USERNAME:$PASSWORD
+/root/.c9/start -l 0.0.0.0 -p $C9_PORT -w /$WORKSPACE -a $USERNAME:$PASSWORD

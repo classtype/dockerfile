@@ -31,6 +31,11 @@ if [ -f /root/.git-prompt.sh ]; then
 fi
 
 alias c='clear'
-alias l='c && ls -alF'
+alias l='c && ls -lAF'
 alias s='c && git status'
+alias ch='c && chmod'
+alias gitaddno='c && git add . && git commit --amend --no-edit && git push -f && c'
+alias npmrei='c && rm -rf ./node_modules && npm install --no-package-lock && c'
+alias npmi='c && npm install --no-package-lock'
 alias c9='/root/.c9/start'
+alias start='./start'

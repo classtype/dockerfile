@@ -13,10 +13,15 @@ docker rm $(docker ps -aq -f ancestor=c9open)
 clear
 echo "Starting..."
 
-./run 8000 3000 classtype main
-./run 8001 3001 classtype dockerfile
-./run 8002 3002 c9open c9open
-./run 8003 3003 classtype app.init
-./run 8004 3004 classtype app.errorlog
-#./run 8005 3005 classtype app.socket
-#./run 8006 3006 classtype app.socket.js
+./run 8000 192.168.1.2 3000 classtype main
+./run 8001 192.168.1.2 3001 classtype sails
+./run 8002 192.168.1.2 3002 classtype tabler
+./run 8003 192.168.1.2 3003 c9open c9open
+./run 8004 192.168.1.2 3004 classtype dockerfile
+./run 8005 192.168.1.2 3005 classtype app.init
+./run 8006 192.168.1.2 3006 classtype app.errorlog
+./run 8007 192.168.1.2 3007 classtype app.file
+./run 8008 192.168.1.2 3008 classtype app.socket
+./run 8009 192.168.1.2 3009 classtype app.socket.js
+./run 8010 192.168.1.2 3010 classtype hive
+./run 8011 192.168.1.2 3011 classtype express

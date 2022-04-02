@@ -7,7 +7,7 @@
         "@displayIndentGuides": true,
         "@fadeFoldWidgets": true,
         "@fontFamily": "Monaco, Menlo, Ubuntu Mono, Consolas, source-code-pro, monospace",
-        "@fontSize": 12,
+        "@fontSize": 18,
         "@highlightActiveLine": true,
         "@highlightGutterLine": true,
         "@highlightSelectedWord": true,
@@ -406,7 +406,7 @@
         "@running_app": false
     },
     "projecttree": {
-        "@hiddenFilePattern": "*.pyc, __pycache__, .*, node_modules, package-lock.json",
+        "@hiddenFilePattern": "*.pyc, __pycache__, .*, node_modules, package.json, package-lock.json",
         "@scope": false,
         "@showhidden": false
     },

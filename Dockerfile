@@ -15,9 +15,9 @@ RUN apk add g++ make python curl bash bash-doc bash-completion openssh-client gi
 && apk add nodejs=16.14.2-r0 npm=8.1.3-r0  -X http://dl-cdn.alpinelinux.org/alpine/v3.15/main/ --no-cache --allow-untrusted \
 && apk add nodejs=8.14.0-r0  npm=8.14.0-r0 -X http://dl-cdn.alpinelinux.org/alpine/v3.8/main/  --no-cache --allow-untrusted \
 
-#┌─────────────────────────────┐
-#│ v8.14.0 — версия для cloud9 │
-#└─────────────────────────────┘
+#┌────────────────────────────┐
+#│ 8.14.0 — версия для cloud9 │
+#└────────────────────────────┘
 && mkdir /apks/node/v8 -p \
 && curl http://dl-cdn.alpinelinux.org/alpine/v3.8/main/x86_64/npm-8.14.0-r0.apk          -o /apks/node/v8/npm.apk \
 && curl http://dl-cdn.alpinelinux.org/alpine/v3.8/main/x86_64/nodejs-8.14.0-r0.apk       -o /apks/node/v8/nodejs.apk \
@@ -98,6 +98,11 @@ RUN apk add g++ make python curl bash bash-doc bash-completion openssh-client gi
 #│ Рабочая дирректория по умолчанию │
 #└──────────────────────────────────┘
 ENV WORKSPACE "/workspace"
+
+#┌───────────────────┐
+#│ Порт по умолчанию │
+#└───────────────────┘
+ENV C9_PORT 8000
 
 #┌──────────────┐
 #│ Bash-профиль │

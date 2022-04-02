@@ -1,40 +1,20 @@
-// https://pkgs.alpinelinux.org/packages?name=nodejs
-// https://stackoverflow.com/questions/53620754/alpine-linux-install-package-without-internet-docker
-// node=[v8.9.3], npm=[5.5.1] (по умолчанию)
-node -v && npm -v
+// Последняя версия node.js
+https://pkgs.alpinelinux.org/packages?name=nodejs
+
+// Установка пакетов без интернета
+https://stackoverflow.com/questions/53620754/alpine-linux-install-package-without-internet-docker
+
+// Распространение образов в виде архива
+https://netpoint-dc.com/blog/sohranenie-i-zagruzka-obrazov-kontejnerov-docker/
 
 
-// node=[v8.14.0], npm=[6.14.15]
-apk add nodejs=8.14.0-r0 npm -X http://dl-cdn.alpinelinux.org/alpine/v3.8/main/ && node -v && npm -v
+// node=[v8.14.0], npm=[6.4.1]
+/root/.c9/node_version/scripts/v8.sh
 
-// node=[10.19.0], npm=[6.14.15]
-apk add nodejs=10.19.0-r0 npm -X http://dl-cdn.alpinelinux.org/alpine/v3.9/main/ && node -v && npm -v
-
-// node=[10.24.1], npm=[6.14.15]
-apk add nodejs=10.24.1-r0 npm -X http://dl-cdn.alpinelinux.org/alpine/v3.10/main/ && node -v && npm -v
-
-// node=[12.22.6], npm=[6.14.15]
-apk add nodejs=12.22.6-r0 npm -X http://dl-cdn.alpinelinux.org/alpine/v3.11/main/ && node -v && npm -v
-
-// node=[14.19.0-r0], npm=[6.14.15]
-apk add nodejs=14.19.0-r0 npm -X http://dl-cdn.alpinelinux.org/alpine/v3.13/main/ --allow-untrusted && node -v && npm -v
-
-// node=[16.14.2-r0], npm=[6.14.15]
-apk add nodejs=16.14.2-r0 npm -X http://dl-cdn.alpinelinux.org/alpine/v3.15/main/ --allow-untrusted && node -v && npm -v
+// node=[v16.14.2], npm=[8.1.3]
+/root/.c9/node_version/scripts/last.sh
 
 
 // cloud9 in cloud9
-if [[ $(node -v 2> /dev/null) != "v8.14.0" ]]; then
-    apk add nodejs=8.14.0-r0 npm -X http://dl-cdn.alpinelinux.org/alpine/v3.8/main/
-fi
-node /root/.c9/server.js -l 0.0.0.0 -p 3000 -w / -a :
-
-
-// Cloud9 in v8.14.0
-c && apk add nodejs=8.14.0-r0 npm -X http://dl-cdn.alpinelinux.org/alpine/v3.8/main/ && c && node /root/.c9/server.js -l 0.0.0.0 -p 3000 -w / -a :
-
-// Cloud9 in v16.14.2
-c && apk add nodejs=16.14.2-r0 npm -X http://dl-cdn.alpinelinux.org/alpine/v3.15/main/ --allow-untrusted && c && node /root/.c9/server.js -l 0.0.0.0 -p 3000 -w / -a :
-
-// Upgrade to v16.14.0
-c && apk add nodejs=16.14.2-r0 npm -X http://dl-cdn.alpinelinux.org/alpine/v3.15/main/ --allow-untrusted && c && node -v && npm -v
+/root/.c9/start -l 0.0.0.0 -p 3000 -w / -a :
+c9 -l 0.0.0.0 -p 3000 -w / -a :
