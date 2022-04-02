@@ -33,3 +33,4 @@ fi
 alias c='clear'
 alias l='c && ls -alF'
 alias s='c && git status'
+alias c9='/root/.c9/start'

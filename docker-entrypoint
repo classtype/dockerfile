@@ -3,7 +3,6 @@
 #┌─────┐
 #│ SSH │
 #└─────┘
-
 mkdir /root/.ssh
 echo "IdentityFile /root/.ssh/id_rsa" >> /etc/ssh/ssh_config
 
@@ -19,25 +18,17 @@ chmod 644 /root/.ssh/id_rsa.pub
 #┌─────┐
 #│ Git │
 #└─────┘
-
 git config --global user.email "email@email.email"
 git config --global user.name "Sergei"
 
-# Если репозитория нет, то пробуем привязать к Github
+#┌─────────────────────────────────────────────────────┐
+#│ Если репозитория нет, то пробуем привязать к Github │
+#└─────────────────────────────────────────────────────┘
 if [ ! -e "/$WORKSPACE/.git" ]; then
     git clone git@github.com:$GIT_USER/$WORKSPACE.git /$WORKSPACE
 fi
 
-#┌─────────────────────────────────────────────┐
-#│ Для Cloud9 подходит только версия "v8.14.0" │
-#└─────────────────────────────────────────────┘
-
-if [[ $(node -v 2> /dev/null) != "v8.14.0" ]]; then
-    apk add nodejs=8.14.0-r0 npm -X http://dl-cdn.alpinelinux.org/alpine/v3.8/main/
-fi
-
 #┌───────────────┐
-#│ Запуск Cloud9 │
+#│ Запуск cloud9 │
 #└───────────────┘
-
-/usr/bin/node /root/.c9/server.js -l 0.0.0.0 -p 8000 -w /$WORKSPACE -a $USERNAME:$PASSWORD
+/root/.c9/start -l 0.0.0.0 -p 8000 -w /$WORKSPACE -a $USERNAME:$PASSWORD
